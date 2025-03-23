@@ -1,0 +1,1 @@
+package jp.co.kdm.domain.entity;

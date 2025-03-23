@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: pg-batch
+    ports:
+      - "5432:5432"  # ← ホスト側65432 → コンテナ5432
+    environment:
+      POSTGRES_USER: batchuser
+      POSTGRES_PASSWORD: batchpass
+      POSTGRES_DB: batchdb
+    volumes:
+      - ./initDB/init.sql:/docker-entrypoint-initdb.d/init.sql:ro

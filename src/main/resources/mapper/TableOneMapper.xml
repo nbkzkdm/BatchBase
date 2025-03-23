@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.kdm.domain.mapper.TableOneMapper">
+
+    <select id="findAll" resultType="jp.co.kdm.domain.entity.TableOneEntity">
+        SELECT user_id, name, age, sex FROM table_one
+    </select>
+
+    <select id="findById" resultType="jp.co.kdm.domain.entity.TableOneEntity" parameterType="int">
+        SELECT user_id, name, age, sex FROM table_one WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insert" parameterType="jp.co.kdm.domain.entity.TableOneEntity">
+        INSERT INTO table_one (name, age, sex)
+        VALUES (#{name}, #{age}, #{sex})
+    </insert>
+
+</mapper>
