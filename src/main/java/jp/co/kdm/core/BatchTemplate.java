@@ -16,9 +16,12 @@ public abstract class BatchTemplate<I extends InputEntity, O extends OutputEntit
     private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     public final O execute(String[] args) {
+        log.info("▶️  [START] {}.input()", getClass().getSimpleName());
         I input = input(args);
         validateInput(input);
+        log.info("▶️  [START] {}.process()", getClass().getSimpleName());
         O output = process(input);
+        log.info("▶️  [START] {}.postProcess()", getClass().getSimpleName());
         postProcess(input, output);
         return output;
     }

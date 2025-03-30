@@ -12,6 +12,7 @@ public class Func002Input extends BaseInputEntity {
     private String inputFilePath;
 
     @Override
+    @NotNull(message = "functionIdは必須です")
     @Pattern(regexp = "Func\\d{3}", message = "functionIdはFuncXXX形式である必要があります")
     public String getFunctionId() {
         return super.getFunctionId();

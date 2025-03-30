@@ -67,6 +67,12 @@ application-{env}.properties
 以下に置き換えます
 application.properties
 
+## maven
+
+[Downloading Apache Maven](https://maven.apache.org/download.cgi)  
+ダウンロードして解凍したファイルを
+`C:\tools`直下に配置してください。  
+`setup-maven-env.bat`を実行すると多分パスが通ります。※試してないｗ
 
 ## Productionビルド
 
@@ -83,9 +89,16 @@ mvn clean package -Pprod
 
 # shell
 
+各バッチは以下のように記載する想定
+
+
+## 開発環境用
+
 ``` shell
 java -Dlogback.configurationFile=logback-dev.xml -jar target/your-batch.jar
 ```
+
+## プロダクション用
 
 ``` shell
 java -Dlogback.configurationFile=logback-prod.xml -jar target/your-batch.jar

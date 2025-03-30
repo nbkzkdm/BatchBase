@@ -10,5 +10,6 @@
 
     <mappers>
         <mapper resource="mapper/TableOneMapper.xml"/>
+        <mapper resource="mapper/TableTwoMapper.xml"/>
     </mappers>
 </configuration>

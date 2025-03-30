@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.kdm.domain.mapper.TableTwoMapper">
+
+  <insert id="insert" parameterType="jp.co.kdm.domain.entity.TableTwoEntity">
+    INSERT INTO table_two (id, date, value)
+    VALUES (#{id}, #{date}, #{value})
+  </insert>
+
+  <select id="findAll" resultType="jp.co.kdm.domain.entity.TableTwoEntity">
+    SELECT id, date, value FROM table_two
+  </select>
+
+  <delete id="deleteAll">
+    DELETE FROM table_two
+  </delete>
+
+  <insert id="insertBatch">
+    INSERT INTO table_two (id, date, value)
+    VALUES
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id}, #{item.date}, #{item.value})
+    </foreach>
+  </insert>
+
+</mapper>
