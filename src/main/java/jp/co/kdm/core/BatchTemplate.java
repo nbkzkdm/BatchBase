@@ -11,10 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Set;
 
 @Slf4j
-public abstract class BatchTemplate<I extends InputEntity, O extends OutputEntity> {
+public abstract class BatchTemplate<I extends InputEntity, O extends OutputEntity> implements IBaseExecute<O> {
 
     private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
+    @Override
     public final O execute(String[] args) {
         log.info("▶️  [START] {}.input()", getClass().getSimpleName());
         I input = input(args);

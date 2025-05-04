@@ -1,13 +1,12 @@
 package jp.co.kdm.func.f001;
 
+import java.io.File;
+
 import jp.co.kdm.core.BatchStatus;
 import jp.co.kdm.core.BatchTemplate;
 import jp.co.kdm.core.OutputEntity;
-import jp.co.kdm.func.f002.Func002Input;
 import jp.co.kdm.func.f002.Func002Output;
 import lombok.extern.slf4j.Slf4j;
-
-import java.io.File;
 
 @Slf4j
 public class Func001 extends BatchTemplate<Func001Input, OutputEntity> {

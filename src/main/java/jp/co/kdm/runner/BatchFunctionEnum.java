@@ -3,7 +3,7 @@
  */
 package jp.co.kdm.runner;
 
-import jp.co.kdm.core.BatchTemplate;
+import jp.co.kdm.core.IBaseExecute;
 import jp.co.kdm.core.InputEntity;
 import jp.co.kdm.func.f001.Func001;
 import jp.co.kdm.func.f001.Func001Input;
@@ -14,11 +14,11 @@ public enum BatchFunctionEnum {
     FUNC001("Func001", Func001.class, Func001Input.class);
 
     private final String functionId;
-    private final Class<? extends BatchTemplate<?, ?>> batchClass;
+    private final Class<? extends IBaseExecute<?>> batchClass;
     private final Class<? extends InputEntity> inputClass;
 
     BatchFunctionEnum(String functionId,
-                      Class<? extends BatchTemplate<?, ?>> batchClass,
+                      Class<? extends IBaseExecute<?>> batchClass,
                       Class<? extends InputEntity> inputClass) {
         this.functionId = functionId;
         this.batchClass = batchClass;

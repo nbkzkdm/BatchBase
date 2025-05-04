@@ -1,13 +1,7 @@
 package jp.co.kdm.runner;
 
-import java.lang.reflect.Constructor;
-
-import org.slf4j.Logger;
-
 import jp.co.kdm.core.BatchRuntimeException;
-import jp.co.kdm.core.BatchTemplate;
-import jp.co.kdm.core.InputEntity;
-import jp.co.kdm.core.Log;
+import jp.co.kdm.core.IBaseExecute;
 import jp.co.kdm.proxy.LoggingProxy;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,9 +18,8 @@ public class MainRunner {
             BatchFunctionEnum function = BatchFunctionEnum.fromFunctionId(functionId);
 
             // BatchTemplate のインスタンス生成
-            BatchTemplate<?, ?> batch = function.getBatchClass().getDeclaredConstructor().newInstance();
-            @SuppressWarnings("unchecked")
-            BatchTemplate<InputEntity, ?> proxy = LoggingProxy.create(BatchTemplate.class, batch);
+            IBaseExecute<?> batch = function.getBatchClass().getDeclaredConstructor().newInstance();
+            IBaseExecute<?> proxy = LoggingProxy.create(IBaseExecute.class, batch);
 
             log.info("機能ID: {}, {}", functionId, function.getBatchClass().getSimpleName());
             proxy.execute(args);
